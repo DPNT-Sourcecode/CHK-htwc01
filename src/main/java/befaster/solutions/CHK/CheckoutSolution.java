@@ -23,8 +23,10 @@ public class CheckoutSolution {
             return 0;
         }
 
-        List<String> items = Arrays.asList(skus.getBytes()).stream().map(b -> String.valueOf(b)).collect(Collectors.toList());
+        List<String> items = Arrays.asList(skus.split(""));
         int sum[] = {0};
+
+        System.out.println(items);
 
         Map<String, Long> itemByCount = items.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
@@ -54,6 +56,7 @@ public class CheckoutSolution {
 
     }
 }
+
 
 
 
