@@ -25,6 +25,7 @@ public class OneTest {
 
     @Test
     public void runCheckoutSolution() {
-        assertThat(chk.checkout("A, A, A, B, B, C, D"), equalTo(130+45+20+15));
+        assertThat(chk.checkout("AAABBCD"), equalTo(130+45+20+15));
+       // assertThat(chk.checkout(""), equalTo(0));
     }
 }

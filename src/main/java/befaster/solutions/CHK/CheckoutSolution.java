@@ -8,18 +8,18 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class CheckoutSolution {
     public Integer checkout(String skus) {
 
+        String regex = "^[A-D]+$";
+
         if(skus==null){
             return -1;
         }
-
-        if()
-
-        if(skus.isBlank()){
+        else if(skus.isBlank() || !Pattern.matches(regex, skus)){
             return 0;
         }
 
