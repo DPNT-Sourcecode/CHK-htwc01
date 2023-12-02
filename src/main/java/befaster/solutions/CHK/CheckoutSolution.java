@@ -2,6 +2,8 @@ package befaster.solutions.CHK;
 
 import befaster.runner.SolutionNotImplementedException;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -21,7 +23,7 @@ public class CheckoutSolution {
             return 0;
         }
 
-        List<String> items = Arrays.asList(skus.split(", "));
+        List<String> items = Arrays.asList(skus.getBytes()).stream().map(b -> String.valueOf(b)).collect(Collectors.toList());
         int sum[] = {0};
 
         Map<String, Long> itemByCount = items.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
@@ -52,5 +54,6 @@ public class CheckoutSolution {
 
     }
 }
+
 
 
