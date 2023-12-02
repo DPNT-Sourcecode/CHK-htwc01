@@ -14,12 +14,12 @@ import java.util.stream.Collectors;
 public class CheckoutSolution {
     public Integer checkout(String skus) {
 
-        String regex = "^[A-D]+$";
+        String regex = "^[A-Z]+$";
 
         if(skus==null){
             return -1;
         }
-        else if(skus.isBlank() || !Pattern.matches(regex, skus)){
+        else if(skus.isEmpty() || !Pattern.matches(regex, skus)){
             return 0;
         }
 
@@ -54,6 +54,7 @@ public class CheckoutSolution {
 
     }
 }
+
 
 
 
