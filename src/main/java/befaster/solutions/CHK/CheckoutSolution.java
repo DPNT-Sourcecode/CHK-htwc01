@@ -16,7 +16,10 @@ public class CheckoutSolution {
 
         String regex = "^[A-Z]+$";
 
-        if(skus== null || !Pattern.matches(regex, skus)){
+        if(skus==null||skus.isEmpty()){
+            return 0;
+        }
+        else if(!Pattern.matches(regex, skus)){
             return -1;
         }
 
@@ -55,4 +58,5 @@ public class CheckoutSolution {
 
     }
 }
+
 
