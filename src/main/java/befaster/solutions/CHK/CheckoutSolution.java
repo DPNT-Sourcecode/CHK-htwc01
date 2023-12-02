@@ -12,7 +12,7 @@ public class CheckoutSolution {
     public Integer checkout(String skus) {
 
         if(skus == null || skus.isBlank()){
-            return -1;
+            return 0;
         }
 
         List<String> items = Arrays.asList(skus.split(", "));
@@ -33,7 +33,7 @@ public class CheckoutSolution {
                     if (total==2){
                         sum[0]+=45;
                     }else {
-                        sum[0]+=45*total;
+                        sum[0]+=30*total;
                     }
                 }else if("C".equals(type)){
                     sum[0] +=20*total;
@@ -46,3 +46,4 @@ public class CheckoutSolution {
 
     }
 }
+
