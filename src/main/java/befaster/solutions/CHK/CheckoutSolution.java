@@ -42,7 +42,7 @@ public class CheckoutSolution {
                 }else if("D".equals(type)){
                     sum[0] +=15*total;
                 }else if("E".equals(type)){
-
+                    sum[0] += ((total / 2) * 40 + (total % 2) * 40) - 30;
                 }
         }
 
@@ -50,4 +50,5 @@ public class CheckoutSolution {
 
     }
 }
+
 
