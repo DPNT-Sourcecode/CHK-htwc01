@@ -34,9 +34,10 @@ public class CheckoutSolution {
                 String type = entry.getKey();
                 Long total = entry.getValue();
                 if("A".equals(type)){
-                    double q1 = (total / 5) * 200;
-                    double q2 = (total )
-                    sum[0] += (total/3)*130 + (total % 3)* 50;
+                    double q1 = (total / 5) * 200; // item for multiple of 5
+                    double q2 = ((total % 5) / 3) * 130; // item for multiple of 3
+                    double q3 = ((total % 5) % 3) * 50; // items for remaining
+                    sum[0] += q1 + q2 + q3;
                 }else if("B".equals(type)){
                     sum[0] += (total/2)*45 + (total % 2)* 30;
                 }else if("C".equals(type)){
@@ -52,7 +53,3 @@ public class CheckoutSolution {
 
     }
 }
-
-
-
-
