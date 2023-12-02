@@ -30,22 +30,22 @@ public class CheckoutSolution {
 
         Map<String, Long> itemByCount = items.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
-        Long quantA = itemByCount.get("A");
+        Long quantA = itemByCount.get("A") == null? 0 : itemByCount.get("A");
         double q1 = (quantA / 5) * 200; // item for multiple of 5
         double q2 = ((quantA % 5) / 3) * 130; // item for multiple of 3
         double q3 = ((quantA % 5) % 3) * 50; // items for remaining
         double totA =  q1 + q2 + q3;
 
-        Long quantB = itemByCount.get("B");
+        Long quantB = itemByCount.get("B") == null? 0 : itemByCount.get("B");
         double totB = (quantB/2)*45 + (quantB % 2)* 30;;
 
-        Long quantC = itemByCount.get("C");
+        Long quantC = itemByCount.get("C") == null? 0 : itemByCount.get("C");
         double totC = 20 * quantC;
 
-        Long quantD = itemByCount.get("D");
+        Long quantD = itemByCount.get("D") == null ? 0 : itemByCount.get("D");
         double totD = 15 * quantD;
 
-        Long quantE = itemByCount.get("E");
+        Long quantE = itemByCount.get("E") == null ? 0 : itemByCount.get("E");
         double totE = (quantE / 2) * 40 + (quantE % 2) * 40 + (quantB / 2) * 30;
 
         int count = (int) (totA + totB + totC + totD + totE);
@@ -75,4 +75,3 @@ public class CheckoutSolution {
 
     }
 }
-
