@@ -41,6 +41,8 @@ public class CheckoutSolution {
                     sum[0] +=20*total;
                 }else if("D".equals(type)){
                     sum[0] +=15*total;
+                }else if("E".equals(type)){
+
                 }
         }
 
@@ -48,3 +50,4 @@ public class CheckoutSolution {
 
     }
 }
+
