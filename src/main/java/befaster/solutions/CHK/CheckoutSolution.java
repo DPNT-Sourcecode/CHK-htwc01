@@ -31,17 +31,19 @@ public class CheckoutSolution {
                 String type = entry.getKey();
                 Long total = entry.getValue();
                 if("A".equals(type)){
-                    if (total==3){
-                        sum[0]+=130;
-                    }else {
-                        sum[0]+=50*total;
-                    }
+//                    if (total==3){
+//                        sum[0]+=130;
+//                    }else {
+//                        sum[0]+=50*total;
+//                    }
+                    sum[0] += (total/3)*130 + (total % 3)* 50;
                 }else if("B".equals(type)){
-                    if (total==2){
-                        sum[0]+=45;
-                    }else {
-                        sum[0]+=30*total;
-                    }
+//                    if (total==2){
+//                        sum[0]+=45;
+//                    }else {
+//                        sum[0]+=30*total;
+//                    }
+                    sum[0] += (total/2)*45 + (total % 2)* 30;
                 }else if("C".equals(type)){
                     sum[0] +=20*total;
                 }else if("D".equals(type)){
