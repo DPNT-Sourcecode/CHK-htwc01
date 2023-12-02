@@ -46,7 +46,8 @@ public class CheckoutSolution {
         double totD = 15 * quantD;
 
         Long quantE = itemByCount.get("E") == null ? 0 : itemByCount.get("E");
-        double totE = (quantE / 2) * 40 + (quantE % 2) * 40 + (quantB / 2) * 30;
+        //double totE = (quantE / 2) * 40 + (quantE % 2) * 40 + (quantB / 2) * 30;
+        double totE = 40 * quantE + (quantB / 2) * 30;
 
         int count = (int) (totA + totB + totC + totD + totE);
 
@@ -75,3 +76,4 @@ public class CheckoutSolution {
 
     }
 }
+
