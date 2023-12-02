@@ -4,6 +4,7 @@ import befaster.runner.SolutionNotImplementedException;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CheckoutSolution {
     public Integer checkout(String skus) {
@@ -15,13 +16,10 @@ public class CheckoutSolution {
         List<String> items = Arrays.asList(skus.split(", "));
         int sum[] = {0};
 
-        items.forEach(item -> {
-            if("A".equals(item)){
-                
-            }
-        });
+        items.stream().collect(Collectors.groupingBy())
 
     }
 }
+
 
 
