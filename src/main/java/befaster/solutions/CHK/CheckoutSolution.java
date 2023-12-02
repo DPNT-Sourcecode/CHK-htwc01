@@ -20,10 +20,13 @@ public class CheckoutSolution {
 
         Map<String, Long> itemByCount = items.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
-        items.fo
+        for ( Map.Entry<String, Long> t : items){
+
+        }
 
     }
 }
+
 
 
 
