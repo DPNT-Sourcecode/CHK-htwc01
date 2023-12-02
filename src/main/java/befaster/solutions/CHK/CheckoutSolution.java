@@ -29,7 +29,7 @@ public class CheckoutSolution {
                     }else {
                         sum[0]+=50*total;
                     }
-                }else if("A".equals(type)){
+                }else if("B".equals(type)){
                     if (total==2){
                         sum[0]+=45;
                     }else {
@@ -38,7 +38,7 @@ public class CheckoutSolution {
                 }else if("C".equals(type)){
                     sum[0] +=20*total;
                 }else if("D".equals(type)){
-                    sum[0] +=20*total;
+                    sum[0] +=15*total;
                 }
         }
 
@@ -46,8 +46,3 @@ public class CheckoutSolution {
 
     }
 }
-
-
-
-
-
