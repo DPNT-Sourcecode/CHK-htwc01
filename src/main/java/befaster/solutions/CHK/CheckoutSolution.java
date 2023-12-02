@@ -34,6 +34,7 @@ public class CheckoutSolution {
                 String type = entry.getKey();
                 Long total = entry.getValue();
                 if("A".equals(type)){
+                    // items not part of the promotion + item part of the promotion
                     sum[0] += (total/3)*130 + (total % 3)* 50;
                 }else if("B".equals(type)){
                     sum[0] += (total/2)*45 + (total % 2)* 30;
@@ -42,7 +43,7 @@ public class CheckoutSolution {
                 }else if("D".equals(type)){
                     sum[0] +=15*total;
                 }else if("E".equals(type)){
-                    sum[0] += ((total / 2) * 40 + (total % 2) * 40) - 30;
+                    sum[0] += (total / 2) * 40 + (total % 2) * 40 + (total / 2) * 30;
                 }
         }
 
@@ -50,5 +51,6 @@ public class CheckoutSolution {
 
     }
 }
+
 
 
