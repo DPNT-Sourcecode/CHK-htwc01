@@ -20,9 +20,29 @@ public class CheckoutSolution {
 
         Map<String, Long> itemByCount = items.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
-        for ( Map.Entry<String, Long> t : items){
-
+        for ( Map.Entry<String, Long> entry : itemByCount.entrySet()){
+                String type = entry.getKey();
+                Long total = entry.getValue();
+                if("A".equals(type)){
+                    if (total==3){
+                        sum[0]+=130;
+                    }else {
+                        sum[0]+=50*total;
+                    }
+                }else if("A".equals(type)){
+                    if (total==2){
+                        sum[0]+=45;
+                    }else {
+                        sum[0]+=45*total;
+                    }
+                }else if("C".equals(type)){
+                    sum[0] +=20*total;
+                }else if("D".equals(type)){
+                    sum[0] +=20*total;
+                }
         }
+
+        return  sum[0];
 
     }
 }
