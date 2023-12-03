@@ -55,13 +55,15 @@ public class CheckoutSolution {
         int count = (int) (totA + totB + totC + totD + totE);
         //int count = (int) (totA + totC + totD + totEB);
 
-        if(quantB > 0) {
-            if (quantE % 2 == 0) {
-                count = (int) (count - ((quantE / 2) * 30));
-            } else {
-                count = (int) (count - (quantE - 1) / 2 * 30);
-            }
-        }
+        count = count - (int)(totB);
+
+//        if(quantB > 0) {
+//            if (quantE % 2 == 0) {
+//                count = (int) (count - ((quantE / 2) * 30));
+//            } else {
+//                count = (int) (count - (quantE - 1) / 2 * 30);
+//            }
+//        }
 
 //        for ( Map.Entry<String, Long> entry : itemByCount.entrySet()){
 //                String type = entry.getKey();
