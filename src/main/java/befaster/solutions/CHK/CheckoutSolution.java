@@ -63,7 +63,6 @@ public class CheckoutSolution {
             }
         }
 
-
 //        for ( Map.Entry<String, Long> entry : itemByCount.entrySet()){
 //                String type = entry.getKey();
 //                Long total = entry.getValue();
@@ -88,3 +87,4 @@ public class CheckoutSolution {
 
     }
 }
+
