@@ -47,7 +47,7 @@ public class CheckoutSolution {
 
         Long quantB = itemByCount.get("B") == null? 0 : itemByCount.get("B");
 
-        // calc free item
+        // calc free items for B
         double freeItem = 0;
         if(quantE % 2 == 0){
             freeItem = (quantE / 2 );
@@ -67,3 +67,4 @@ public class CheckoutSolution {
         return count;
     }
 }
+
