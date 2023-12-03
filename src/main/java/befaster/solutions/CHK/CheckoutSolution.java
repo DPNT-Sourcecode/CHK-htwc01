@@ -85,8 +85,3 @@ public class CheckoutSolution {
         return quantF - (int)freeItem;
     }
 }
-
-
-
-
-

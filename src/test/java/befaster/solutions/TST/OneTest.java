@@ -35,4 +35,3 @@ public class OneTest {
        // assertThat(chk.checkout("AxA"), equalTo(0));
     }
 }
-
