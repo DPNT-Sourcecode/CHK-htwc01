@@ -26,8 +26,10 @@ public class OneTest {
     @Test
     public void runCheckoutSolution() {
        // assertThat(chk.checkout("AAABBCD"), equalTo(130+45+20+15));
-       assertThat(chk.checkout("EEB"), equalTo(80));
-       //assertThat(chk.checkout("EEEEBB"), equalTo(160));
+       //assertThat(chk.checkout("EEB"), equalTo(80));
+        //assertThat(chk.checkout("B"), equalTo(30));
+        //assertThat(chk.checkout("ABCDE"), equalTo(155));
+       assertThat(chk.checkout("EEEEBB"), equalTo(160));
        // assertThat(chk.checkout("AxA"), equalTo(0));
     }
 }

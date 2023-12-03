@@ -55,7 +55,9 @@ public class CheckoutSolution {
         int count = (int) (totA + totB + totC + totD + totE);
         //int count = (int) (totA + totC + totD + totEB);
 
-        count = count - (int)(totB);
+        if(quantE >=2) {
+            count = count - (int) (totB);
+        }
 
         return count;
 
