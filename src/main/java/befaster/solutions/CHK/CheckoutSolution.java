@@ -44,7 +44,7 @@ public class CheckoutSolution {
         Long quantB = itemByCount.get("B") == null? 0 : itemByCount.get("B");
 
         // calc free items for B
-        newQuantB(quantE, quantB);
+        quantB = newQuantB(quantE, quantB);
         double totB = (quantB/2) * 45 + (quantB % 2) * 30;
 
 
@@ -57,7 +57,7 @@ public class CheckoutSolution {
         return count;
     }
 
-    private void newQuantB(Long quantE, Long quantB) {
+    private Long newQuantB(Long quantE, Long quantB) {
         double freeItemB = 0;
         if(quantE % 2 == 0){
             freeItemB = (quantE / 2 );
@@ -66,11 +66,12 @@ public class CheckoutSolution {
         }
 
         // new quant B
+        Long newQuantB = Long.valueOf(0);
         if(quantB > freeItemB){
-            quantB -= (int)freeItemB;
-        }else {
-            quantB = Long.valueOf(0);
+            newQuantB -= (int)freeItemB;
         }
+
+        return newQuantB;
     }
 
     private Long newQuantF(Long quantF){
@@ -84,6 +85,7 @@ public class CheckoutSolution {
         return quantF - (int)freeItem;
     }
 }
+
 
 
 
