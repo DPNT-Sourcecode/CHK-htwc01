@@ -75,17 +75,17 @@ public class CheckoutSolution {
     }
 
     private Long newQuant(Long quant){
-        double freeItemB = 0;
+        double freeItem = 0;
         if(quant % 2 == 0){
-            freeItemB = (quant / 2 );
+            freeItem = (quant / 2 );
         }else {
-            freeItemB = (quant - 1) / 2;
+            freeItem = (quant - 1) / 2;
         }
 
-        // new quant B
+        // new quant
         Long newQuant = Long.valueOf(0);
-        if(quant > freeItemB){
-            newQuant = quant - (int)freeItemB;
+        if(quant > freeItem){
+            newQuant = quant - (int)freeItem;
         }else {
             newQuant = Long.valueOf(0);
         }
@@ -93,4 +93,5 @@ public class CheckoutSolution {
         return newQuant;
     }
 }
+
 
