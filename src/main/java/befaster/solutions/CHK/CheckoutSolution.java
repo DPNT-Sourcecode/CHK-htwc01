@@ -37,6 +37,7 @@ public class CheckoutSolution {
         double totA =  q1 + q2 + q3;
 
         Long quantB = itemByCount.get("B") == null? 0 : itemByCount.get("B");
+
         double totB = (quantB/2) * 45 + (quantB % 2) * 30;
 
         Long quantC = itemByCount.get("C") == null? 0 : itemByCount.get("C");
@@ -46,12 +47,21 @@ public class CheckoutSolution {
         double totD = 15 * quantD;
 
         Long quantE = itemByCount.get("E") == null ? 0 : itemByCount.get("E");
+        double totE = quantE * 40;
         //double totE = (quantE / 2) * 40 + (quantE % 2) * 40 + (quantB / 2) * 30;
         //double totE = quantE == 0? 0 : 40 * quantE - (quantB % 2) * 30;
-        double totEB = (quantE / 2) * 40 + (quantE % 2) * 40 + (quantB / 2) * 45 + (quantB % 2) * 30;
+        //double totEB = (quantE / 2) * 40 + (quantE % 2) * 40 + (quantB / 2) * 30 + (quantB % 2) * 45;
 
-        //int count = (int) (totA + totB + totC + totD + totE);
-        int count = (int) (totA + totC + totD + totEB);
+        int count = (int) (totA + totB + totC + totD + totE);
+        //int count = (int) (totA + totC + totD + totEB);
+
+        if(quantB > 0) {
+            if (quantE % 2 == 0) {
+                count = (int) (count - ((quantE / 2) * 30));
+            } else {
+                count = (int) (count - (quantE - 1) / 2 * 30);
+            }
+        }
 
 
 //        for ( Map.Entry<String, Long> entry : itemByCount.entrySet()){
