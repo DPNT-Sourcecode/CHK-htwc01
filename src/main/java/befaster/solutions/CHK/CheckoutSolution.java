@@ -68,7 +68,7 @@ public class CheckoutSolution {
         // new quant B
         Long newQuantB = Long.valueOf(0);
         if(quantB > freeItemB){
-            newQuantB -= (int)freeItemB;
+            newQuantB = quantB - (int)freeItemB;
         }
 
         return newQuantB;
@@ -85,6 +85,7 @@ public class CheckoutSolution {
         return quantF - (int)freeItem;
     }
 }
+
 
 
 
