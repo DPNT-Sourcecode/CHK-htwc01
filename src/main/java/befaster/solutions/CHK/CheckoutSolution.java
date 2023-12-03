@@ -1,9 +1,5 @@
 package befaster.solutions.CHK;
 
-import befaster.runner.SolutionNotImplementedException;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -48,25 +44,12 @@ public class CheckoutSolution {
         Long quantB = itemByCount.get("B") == null? 0 : itemByCount.get("B");
 
         // calc free items for B
-//        double freeItemB = 0;
-//        if(quantE % 2 == 0){
-//            freeItemB = (quantE / 2 );
-//        }else {
-//            freeItemB = (quantE - 1) / 2;
-//        }
-//
-//        // new quant B
-//        if(quantB > freeItemB){
-//            quantB -= (int)freeItemB;
-//        }else {
-//            quantB = Long.valueOf(0);
-//        }
-        quantB = newQuant(quantB);
+        newQuantB(quantE, quantB);
         double totB = (quantB/2) * 45 + (quantB % 2) * 30;
 
 
         Long quantF = itemByCount.get("F") == null ? 0 : itemByCount.get("F");
-        quantF = newQuant(quantF);
+        quantF = newQuantF(quantF);
         double totF = quantF * 10;
 
         int count = (int) (totA + totB + totC + totD + totE + totF);
@@ -74,24 +57,33 @@ public class CheckoutSolution {
         return count;
     }
 
-    private Long newQuant(Long quant){
+    private void newQuantB(Long quantE, Long quantB) {
+        double freeItemB = 0;
+        if(quantE % 2 == 0){
+            freeItemB = (quantE / 2 );
+        }else {
+            freeItemB = (quantE - 1) / 2;
+        }
+
+        // new quant B
+        if(quantB > freeItemB){
+            quantB -= (int)freeItemB;
+        }else {
+            quantB = Long.valueOf(0);
+        }
+    }
+
+    private Long newQuantF(Long quantF){
         double freeItem = 0;
-        if(quant % 2 == 0){
-            freeItem = (quant / 2 );
+        if(quantF % 2 == 0){
+            freeItem = (quantF / 2 );
         }else {
-            freeItem = (quant - 1) / 2;
+            freeItem = (quantF - 1) / 2;
         }
 
-        // new quant
-        Long newQuant = Long.valueOf(0);
-        if(quant > freeItem){
-            newQuant = quant - (int)freeItem;
-        }else {
-            newQuant = Long.valueOf(0);
-        }
-
-        return newQuant;
+        return quantF - (int)freeItem;
     }
 }
+
 
 
