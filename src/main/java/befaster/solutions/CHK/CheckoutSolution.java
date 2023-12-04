@@ -101,11 +101,7 @@ public class CheckoutSolution {
                 String freeItem = offer.getFreeItem();
                 int freeItemQuant = offer.getFreeItemQuant();
 
-                if(count >= 3) {
-                    totalPrice[0] += (count / 3) * freeItemQuant * PriceTable.priceTable.get(freeItem) + (count % 3) * 10;
-                }else {
-                    totalPrice[0] -= freeItemQuant * PriceTable.priceTable.get(freeItem);
-                }
+                totalPrice[0] += (count / 3) * freeItemQuant * PriceTable.priceTable.get(freeItem) + (count % 3) * 10;
 
 //                if(totalPrice[0] > 0) {
 //                    totalPrice[0] -= freeItemQuant * PriceTable.priceTable.get(freeItem);
