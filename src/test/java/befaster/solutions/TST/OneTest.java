@@ -34,8 +34,8 @@ public class OneTest {
        //assertThat(chk.checkout("AAAAAEEBAAABB"), equalTo(455));
        // assertThat(chk.checkout("AxA"), equalTo(0));
 
-        assertThat(chk.checkout("FF"), equalTo(20));
-        //assertThat(chk.checkout("FFFF"), equalTo(30));
+        //assertThat(chk.checkout("FF"), equalTo(20));
+        assertThat(chk.checkout("FFFF"), equalTo(30));
         //assertThat(chk.checkout("FFFFFF"), equalTo(40));
 
     }
