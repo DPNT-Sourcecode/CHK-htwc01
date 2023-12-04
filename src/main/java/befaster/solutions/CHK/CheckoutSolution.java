@@ -100,6 +100,11 @@ public class CheckoutSolution {
                 String freeItem = offer.getFreeItem();
                 int freeItemQuant = offer.getFreeItemQuant();
 
+
+                if(freeItemQuant > 0){
+                    
+                }
+
                 if(totalPrice[0] > 0) {
                     totalPrice[0] -= freeItemQuant * PriceTable.priceTable.get(freeItem);
 
@@ -119,5 +124,6 @@ public class CheckoutSolution {
         return totalPrice[0];
     }
 }
+
 
 
