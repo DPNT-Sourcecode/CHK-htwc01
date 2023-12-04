@@ -99,7 +99,7 @@ public class CheckoutSolution {
             specialOfferoffer.offerForFreeItemList.forEach(offer -> {
                 String freeItem = offer.getFreeItem();
                 int freeItemQuant = offer.getFreeItemQuant();
-                totalPrice[0] -= freeItemQuant * PriceTable.priceTable.get(item);
+                totalPrice[0] -= freeItemQuant * PriceTable.priceTable.get(freeItem);
             });
 
         } else {
@@ -109,3 +109,4 @@ public class CheckoutSolution {
         return totalPrice[0];
     }
 }
+
