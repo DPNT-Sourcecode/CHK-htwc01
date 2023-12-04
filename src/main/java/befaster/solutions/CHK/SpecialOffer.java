@@ -14,22 +14,7 @@ public class SpecialOffer {
         this.offerForFreeItemList = offerForFreeItemList;
     }
 
-//    public int calculateTotalPrice(int itemCount, Map<String, Integer> itemsQaunt){
-//
-//        offerForQuantityList.forEach(offerForQuantity -> {
-//            int offerQuant = offerForQuantity.getOfferQuant();
-//            int offerPrice = offerForQuantity.getOfferPrice();
-//
-//            String item =
-//
-//            int quantity = itemCount / offerQuant;
-//            int remainingItems = itemCount % offerQuant;
-//
-//            int totalPrice = (quantity * offerPrice) + (remainingItems * PriceTable.priceTable.get())
-//        });
-//
-//
-//    }
+
 
 
 }

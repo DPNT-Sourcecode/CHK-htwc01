@@ -12,8 +12,6 @@ public class PriceTable {
 
     public static final Map<String, SpecialOffer> specialOffers = new HashMap<>();
 
-    public static final Map<String, SpecialOffer> specialOffersFreeItem = new HashMap<>();
-
     static {
         priceTable.put("A", 50);
         priceTable.put("B", 30);
