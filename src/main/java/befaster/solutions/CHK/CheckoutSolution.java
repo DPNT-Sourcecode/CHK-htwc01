@@ -102,6 +102,11 @@ public class CheckoutSolution {
 
                 if(totalPrice[0] > 0) {
                     totalPrice[0] -= freeItemQuant * PriceTable.priceTable.get(freeItem);
+
+                    double totF = (quantF / 3) * 2 * 10 + (quantF % 3 ) * 10;
+
+                    totalPrice[0] += (freeItemQuant / offer.getOfferQuant()) * offer.getOfferPrice();
+                    totalPrice[0] += (count % offer.getOfferQuant()) * regularPrice;
                 }else {
                     totalPrice[0] += freeItemQuant * PriceTable.priceTable.get(freeItem);
                 }
@@ -114,4 +119,5 @@ public class CheckoutSolution {
         return totalPrice[0];
     }
 }
+
 
