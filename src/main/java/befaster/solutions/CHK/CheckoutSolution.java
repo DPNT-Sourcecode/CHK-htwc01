@@ -103,6 +103,8 @@ public class CheckoutSolution {
 
                 totalPrice[0] += (count / 3) * freeItemQuant * PriceTable.priceTable.get(freeItem) + (count % 3) * 10;
 
+                if()
+
 //                if(totalPrice[0] > 0) {
 //                    totalPrice[0] -= freeItemQuant * PriceTable.priceTable.get(freeItem);
 //                }else {
@@ -117,4 +119,3 @@ public class CheckoutSolution {
         return totalPrice[0];
     }
 }
-
