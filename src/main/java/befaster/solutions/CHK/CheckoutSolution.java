@@ -120,8 +120,8 @@ public class CheckoutSolution {
             if(specialOfferoffer.getOfferForQuantityList().size() > 0){
                 int actualCount = count.intValue();
                 int totPrc = 0;
-                List<OfferForQuantity> collect = specialOfferoffer.getOfferForQuantityList().stream().sorted(Comparator.comparingInt(OfferForQuantity::getOfferQuant)).collect(Collectors.toList());
-                for (OfferForQuantity offer: specialOfferoffer.getOfferForQuantityList()) {
+                List<OfferForQuantity> sortedList = specialOfferoffer.getOfferForQuantityList().stream().sorted((o1, o2) -> Integer.compare(o1.getOfferQuant(), o2.getOfferQuant())).collect(Collectors.toList());
+                for (OfferForQuantity offer: sortedList) {
 
                     if(actualCount >= offer.getOfferQuant()) {
                         totalPrice[0] += offer.getOfferPrice();
@@ -138,3 +138,4 @@ public class CheckoutSolution {
         return totalPrice[0];
     }
 }
+
