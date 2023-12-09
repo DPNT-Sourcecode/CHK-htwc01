@@ -126,6 +126,7 @@ public class CheckoutSolution {
                     if(actualCount >= offer.getOfferQuant()) {
                         totalPrice[0] += offer.getOfferPrice();
                         actualCount -= offer.getOfferQuant();
+                        continue;
                     }
                 }
                 totalPrice[0] += actualCount * regularPrice;
@@ -138,5 +139,6 @@ public class CheckoutSolution {
         return totalPrice[0];
     }
 }
+
 
 
