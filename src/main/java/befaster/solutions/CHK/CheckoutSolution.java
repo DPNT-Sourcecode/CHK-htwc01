@@ -1,9 +1,6 @@
 package befaster.solutions.CHK;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -123,7 +120,9 @@ public class CheckoutSolution {
             if(specialOfferoffer.getOfferForQuantityList().size() > 0){
                 int actualCount = count.intValue();
                 int totPrc = 0;
-                specialOfferoffer.getOfferForQuantityList().stream().sorted()
+                specialOfferoffer.getOfferForQuantityList().stream().sorted((o1, o2) -> {
+                    return o1.getOfferQuant() > o2.getOfferQuant()? o1 : o2;
+                }).collect(Collectors.toList())
                 for (OfferForQuantity offer: specialOfferoffer.getOfferForQuantityList()) {
 
                     if(actualCount >= offer.getOfferQuant()) {
@@ -141,6 +140,7 @@ public class CheckoutSolution {
         return totalPrice[0];
     }
 }
+
 
 
 
