@@ -102,7 +102,7 @@ public class CheckoutSolution {
                 int freeItemQuant = offer.getFreeItemQuant();
 
                 if(freeItem.equals(item)){
-                    if(count > freeItemQuant){
+                    if(count > 2){
                         totalPrice[0] += (count / (freeItemQuant + 1)) * freeItemQuant * regularPrice + (count % (freeItemQuant + 1)) * regularPrice;
                     }else {
                         totalPrice[0] += count * regularPrice;
@@ -148,4 +148,5 @@ public class CheckoutSolution {
         return totalPrice[0];
     }
 }
+
 
