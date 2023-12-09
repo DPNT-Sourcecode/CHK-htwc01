@@ -150,7 +150,3 @@ public class CheckoutSolution {
         return totalPrice[0];
     }
 }
-
-
-
-
