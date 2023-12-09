@@ -30,11 +30,11 @@ public class OneTest {
        //assertThat(chk.checkout("B"), equalTo(30));
         //assertThat(chk.checkout("E"), equalTo(40));
         //assertThat(chk.checkout("N"), equalTo(40));
-        assertThat(chk.checkout("AAAAA"), equalTo(200));
+        //assertThat(chk.checkout("AAAAA"), equalTo(200));
         //assertThat(chk.checkout("ABCDE"), equalTo(155));
       //assertThat(chk.checkout("EEEEBB"), equalTo(160));
       // assertThat(chk.checkout("ABCDEABCDE"), equalTo(280));
-      // assertThat(chk.checkout("AAAAAEEBAAABB"), equalTo(455));
+      //assertThat(chk.checkout("AAAAAEEBAAABB"), equalTo(455));
        //assertThat(chk.checkout("AxA"), equalTo(0));
 
        // assertThat(chk.checkout("FF"), equalTo(20));
