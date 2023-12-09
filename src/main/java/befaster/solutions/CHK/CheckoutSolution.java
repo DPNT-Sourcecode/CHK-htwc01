@@ -111,7 +111,7 @@ public class CheckoutSolution {
                     }
                 }else {
                     if(itemCounts.containsKey(freeItem)){
-                        Long newQuant = newQuantB(count, itemCounts.get(freeItem)) - 1;
+                        Long newQuant = newQuantB(count, itemCounts.get(freeItem));
                        int newTotalPrice = calculateItemPrice(freeItem, newQuant,  itemCounts,  totalPricePerItem);
                        totalPricePerItem.put(freeItem, newTotalPrice);
                     }
@@ -150,6 +150,7 @@ public class CheckoutSolution {
         return totalPrice[0];
     }
 }
+
 
 
 
