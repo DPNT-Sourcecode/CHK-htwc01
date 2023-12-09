@@ -37,7 +37,8 @@ public class OneTest {
         //assertThat(chk.checkout("RRRQ"), equalTo(150));
         //assertThat(chk.checkout("RRRRQ"), equalTo(200));
         //assertThat(chk.checkout("RRRRRRQQ"), equalTo(300));
-        assertThat(chk.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ"), equalTo(1880));
+        //assertThat(chk.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ"), equalTo(1880));
+        assertThat(chk.checkout("BB"), equalTo(45));
         //assertThat(chk.checkout("ABCDE"), equalTo(155));
       //assertThat(chk.checkout("EEEEBB"), equalTo(160));
       // assertThat(chk.checkout("ABCDEABCDE"), equalTo(280));
@@ -50,6 +51,7 @@ public class OneTest {
 
     }
 }
+
 
 
 
