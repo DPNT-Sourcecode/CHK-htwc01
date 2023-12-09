@@ -82,6 +82,8 @@ public class CheckoutSolution {
             newQuantB = quantB - (int)freeItemB;
         }
 
+        return 
+
         return newQuantB;
     }
 
@@ -148,3 +150,4 @@ public class CheckoutSolution {
         return totalPrice[0];
     }
 }
+
