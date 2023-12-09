@@ -33,7 +33,8 @@ public class OneTest {
         //assertThat(chk.checkout("AAAAA"), equalTo(200));
         //assertThat(chk.checkout("AAAAAAAAAA"), equalTo(400));
         //assertThat(chk.checkout("PPPPP"), equalTo(200));
-        assertThat(chk.checkout("PPPPPP"), equalTo(250));
+        //assertThat(chk.checkout("PPPPPP"), equalTo(250));
+        assertThat(chk.checkout("RRRQ"), equalTo(150));
         //assertThat(chk.checkout("ABCDE"), equalTo(155));
       //assertThat(chk.checkout("EEEEBB"), equalTo(160));
       // assertThat(chk.checkout("ABCDEABCDE"), equalTo(280));
@@ -46,3 +47,4 @@ public class OneTest {
 
     }
 }
+
