@@ -115,9 +115,8 @@ public class CheckoutSolution {
                         Long newQuant = newQuantB(count, itemCounts.get(freeItem));
                        int newTotalPrice = calculateItemPrice(freeItem, newQuant,  itemCounts,  totalPricePerItem);
                        totalPricePerItem.put(freeItem, newTotalPrice);
-                        totalPrice[0] += count * regularPrice;
                     }
-
+                    totalPrice[0] += count * regularPrice;
                 }
             });
 
@@ -141,4 +140,5 @@ public class CheckoutSolution {
         return totalPrice[0];
     }
 }
+
 
