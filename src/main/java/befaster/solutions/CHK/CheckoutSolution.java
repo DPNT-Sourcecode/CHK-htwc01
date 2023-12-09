@@ -76,15 +76,15 @@ public class CheckoutSolution {
             freeItemB = (quantE - 1) / 2;
         }
 
-        // new quant B
-        Long newQuantB = Long.valueOf(0);
-        if(quantB > freeItemB){
-            newQuantB = quantB - (int)freeItemB;
-        }
+        return Long.valueOf ((long) (quantB + freeItemB));
 
-        return 
-
-        return newQuantB;
+//        // new quant B
+//        Long newQuantB = Long.valueOf(0);
+//        if(quantB > freeItemB){
+//            newQuantB = quantB - (int)freeItemB;
+//        }
+//
+//        return newQuantB;
     }
 
 
@@ -111,7 +111,7 @@ public class CheckoutSolution {
                     }
                 }else {
                     if(itemCounts.containsKey(freeItem)){
-                        Long newQuant = newQuantB(count, itemCounts.get(freeItem));
+                        Long newQuant = newQuantB(count, itemCounts.get(freeItem)) - 1;
                        int newTotalPrice = calculateItemPrice(freeItem, newQuant,  itemCounts,  totalPricePerItem);
                        totalPricePerItem.put(freeItem, newTotalPrice);
                     }
@@ -150,4 +150,5 @@ public class CheckoutSolution {
         return totalPrice[0];
     }
 }
+
 
