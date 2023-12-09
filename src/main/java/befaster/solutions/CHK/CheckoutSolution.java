@@ -76,15 +76,15 @@ public class CheckoutSolution {
             freeItemB = (quantE - 1) / 2;
         }
 
-        return Long.valueOf ((long) (quantB + freeItemB));
+       // return Long.valueOf ((long) (quantB + freeItemB));
 
-//        // new quant B
-//        Long newQuantB = Long.valueOf(0);
-//        if(quantB > freeItemB){
-//            newQuantB = quantB - (int)freeItemB;
-//        }
-//
-//        return newQuantB;
+        // new quant B
+        Long newQuantB = Long.valueOf(0);
+        if(quantB > freeItemB){
+            newQuantB = quantB - (int)freeItemB;
+        }
+
+        return newQuantB;
     }
 
 
@@ -150,5 +150,6 @@ public class CheckoutSolution {
         return totalPrice[0];
     }
 }
+
 
 
