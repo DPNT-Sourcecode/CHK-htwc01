@@ -37,15 +37,16 @@ public class OneTest {
         //assertThat(chk.checkout("RRRQ"), equalTo(150));
         //assertThat(chk.checkout("RRRRQ"), equalTo(200));
         //assertThat(chk.checkout("RRRRRRQQ"), equalTo(300));
-        //assertThat(chk.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ"), equalTo(1880));
-        assertThat(chk.checkout("EEBB"), equalTo(80+45));
+        assertThat(chk.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ"), equalTo(1880));
+        //assertThat(chk.checkout("EEBB"), equalTo(80+30));
+       //assertThat(chk.checkout("NNMM"), equalTo(80+30));
         //assertThat(chk.checkout("ABCDE"), equalTo(155));
       //assertThat(chk.checkout("EEEEBB"), equalTo(160));
       // assertThat(chk.checkout("ABCDEABCDE"), equalTo(280));
       //assertThat(chk.checkout("AAAAAEEBAAABB"), equalTo(455));
        //assertThat(chk.checkout("AxA"), equalTo(0));
 
-       // assertThat(chk.checkout("FF"), equalTo(20));
+        //assertThat(chk.checkout("FF"), equalTo(20));
         //assertThat(chk.checkout("FFFF"), equalTo(30));
        //assertThat(chk.checkout("FFFFFF"), equalTo(40));
 

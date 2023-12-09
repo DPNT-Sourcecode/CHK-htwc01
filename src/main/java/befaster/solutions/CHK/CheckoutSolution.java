@@ -35,7 +35,7 @@ public class CheckoutSolution {
             //total += price;
         }
 
-
+        System.out.println(totalPricePerItem);
         return  totalPricePerItem.values().stream().reduce(0, (n1, n2) -> n1+n2);
         //return total;
 //        Long quantA = itemByCount.get("A") == null? 0 : itemByCount.get("A");
@@ -88,6 +88,12 @@ public class CheckoutSolution {
     }
 
 
+    private int newQuant(Long trigCount, Long targetCount){
+        return (int) (trigCount / 2);
+    }
+
+
+
     public int calculateItemPrice(String item, Long count, Map<String, Long> itemCounts,  Map<String, Integer> totalPricePerItem){
 
         int regularPrice = PriceTable.priceTable.get(item);
@@ -110,12 +116,13 @@ public class CheckoutSolution {
                         totalPrice[0] += count * regularPrice;
                     }
                 }else {
-                    if(itemCounts.containsKey(freeItem)){
+                    if(itemCounts.containsKey(freeItem) && count >= freeItemQuant){
                         Long newQuant = newQuantB(count, itemCounts.get(freeItem));
-                       int newTotalPrice = calculateItemPrice(freeItem, newQuant,  itemCounts,  totalPricePerItem);
-                       totalPricePerItem.put(freeItem, newTotalPrice);
+                       int newTotalPrice = calculateItemPrice(freeItem, Long.valueOf(newQuant),  itemCounts,  totalPricePerItem);
+                        totalPricePerItem.put(freeItem, newTotalPrice);
                     }
                     totalPrice[0] += count * regularPrice;
+
                 }
             });
 
@@ -133,13 +140,6 @@ public class CheckoutSolution {
                         i++;
                     }
                 }
-//                for (OfferForQuantity offer: sortedList) {
-//
-//                    if(actualCount >= offer.getOfferQuant()) {
-//                        totalPrice[0] += offer.getOfferPrice();
-//                        actualCount -= offer.getOfferQuant();
-//                    }
-//                }
                 totalPrice[0] += actualCount * regularPrice;
             }
 
