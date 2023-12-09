@@ -50,10 +50,12 @@ public class PriceTable {
         specialOffers.put("N", new SpecialOffer(Arrays.asList(), Arrays.asList(new OfferForFreeItem(3, "M"))));
         specialOffers.put("P", new SpecialOffer(Arrays.asList(new OfferForQuantity(5, 200)), Arrays.asList()));
         specialOffers.put("Q", new SpecialOffer(Arrays.asList(new OfferForQuantity(3, 80)), Arrays.asList()));
+        specialOffers.put("R", new SpecialOffer(Arrays.asList(), Arrays.asList( new OfferForFreeItem(3, "Q"))));
         specialOffers.put("U", new SpecialOffer(Arrays.asList(), Arrays.asList(new OfferForFreeItem(3, "U"))));
         specialOffers.put("V", new SpecialOffer(Arrays.asList(new OfferForQuantity(2, 90), new OfferForQuantity(3, 130)), Arrays.asList()));
 
     }
 }
+
 
 
