@@ -1,6 +1,7 @@
 package befaster.solutions.CHK;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -27,14 +28,19 @@ public class CheckoutSolution {
         Map<String, Long> itemCounts = items.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
         int total = 0;
+
+        Map<String, Integer> totalPricePerItem = new HashMap<>();
         for (Map.Entry<String, Long> entry : itemCounts.entrySet()) {
             String item = entry.getKey();
             Long count = entry.getValue();
-            int price = calculateItemPrice(item, count);
-            total += price;
+            int price = calculateItemPrice(item, count, itemCounts, totalPricePerItem);
+            totalPricePerItem.put(item, price);
+            //total += price;
         }
 
-        return total;
+
+        return  totalPricePerItem.values().stream().reduce(0, (n1, n2) -> n1+n2);
+        //return total;
 //        Long quantA = itemByCount.get("A") == null? 0 : itemByCount.get("A");
 //        double q1 = (quantA / 5) * 200; // item for multiple of 5
 //        double q2 = ((quantA % 5) / 3) * 130; // item for multiple of 3
@@ -83,7 +89,7 @@ public class CheckoutSolution {
     }
 
 
-    public int calculateItemPrice(String item, Long count) {
+    public int calculateItemPrice(String item, Long count, Map<String, Long> itemCounts,  Map<String, Integer> totalPricePerItem){
 
         int regularPrice = PriceTable.priceTable.get(item);
         int totalPrice[] = {0};
@@ -91,26 +97,72 @@ public class CheckoutSolution {
         if (PriceTable.specialOffers.containsKey(item)) {
             SpecialOffer specialOfferoffer = PriceTable.specialOffers.get(item);
 
-            specialOfferoffer.offerForQuantityList.forEach(offer -> {
-                totalPrice[0] += (count / offer.getOfferQuant()) * offer.getOfferPrice();
-                totalPrice[0] += (count % offer.getOfferQuant()) * regularPrice;
-            });
 
 
-            specialOfferoffer.offerForFreeItemList.forEach(offer -> {
+            specialOfferoffer.getOfferForFreeItemList().forEach(offer -> {
+
                 String freeItem = offer.getFreeItem();
                 int freeItemQuant = offer.getFreeItemQuant();
 
-                totalPrice[0] += (count / 3) * freeItemQuant * regularPrice + (count % 3) * regularPrice;
+                if(freeItem.equals(item)){
+                    if(count > 2){
+                        totalPrice[0] += (count / (freeItemQuant + 1)) * freeItemQuant * regularPrice + (count % (freeItemQuant + 1)) * regularPrice;
+                    }else {
+                        totalPrice[0] += count * regularPrice;
+                    }
+                }else {
+                    if(itemCounts.containsKey(freeItem)){
+                        Long newQuant = newQuantB(count, itemCounts.get(freeItem));
+                       int newTotalPrice = calculateItemPrice(freeItem, newQuant,  itemCounts,  totalPricePerItem);
+                       totalPricePerItem.put(freeItem, newTotalPrice);
+                        totalPrice[0] += count * regularPrice;
+                    }
+
+                }
 
 
+//                totalPrice[0] += (count / (freeItemQuant + 1)) * freeItemQuant * regularPrice + (count % (freeItemQuant + 1)) * regularPrice;
+//
+//                Long freeItems = Math.min(itemCounts.getOrDefault(freeItem, Long.valueOf(0)), count);
+//
+//                if(freeItems > 0)
+//                    totalPrice[0] -= freeItems * PriceTable.priceTable.get(freeItem);
 
-//                if(totalPrice[0] > 0) {
-//                    totalPrice[0] -= freeItemQuant * PriceTable.priceTable.get(freeItem);
-//                }else {
-//                    totalPrice[0] += freeItemQuant * PriceTable.priceTable.get(freeItem);
-//                }
+
             });
+
+            if(specialOfferoffer.getOfferForQuantityList().size() > 0){
+                int actualCount = count.intValue();
+                int totPrc = 0;
+                for (OfferForQuantity offer: specialOfferoffer.getOfferForQuantityList()) {
+
+                    if(actualCount >= offer.getOfferQuant()) {
+                        totalPrice[0] += offer.getOfferPrice();
+                        actualCount -= offer.getOfferQuant();
+                    }
+
+//                if(count == offer.getOfferQuant()){
+//                    totalPrice[0] += offer.getOfferPrice();
+//                    break;
+//                }else {
+//                    totalPrice[0] += count * regularPrice;
+//                    break;
+//                }
+                }
+                totalPrice[0] += actualCount * regularPrice;
+            }
+//            specialOfferoffer.getOfferForQuantityList().forEach(offer -> {
+//
+//                if(count == offer.getOfferQuant()){
+//                    totalPrice[0] += offer.getOfferPrice();
+//                    return;
+//                }
+////                else {
+////                    totalPrice[0] += (count / offer.getOfferQuant()) * offer.getOfferPrice();
+////                    totalPrice[0] += (count % offer.getOfferQuant()) * regularPrice;
+////                }
+//            });
+
 
         } else {
             totalPrice[0] += count * regularPrice;

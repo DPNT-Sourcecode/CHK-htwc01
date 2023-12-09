@@ -21,9 +21,8 @@ public class PriceTable {
         priceTable.put("F", 10);
         priceTable.put("G", 20);
         priceTable.put("H", 10);
-
         priceTable.put("I", 35);
-        priceTable.put("J", 20);
+        priceTable.put("J", 60);
         priceTable.put("K", 80);
         priceTable.put("L", 90);
         priceTable.put("M", 15);
